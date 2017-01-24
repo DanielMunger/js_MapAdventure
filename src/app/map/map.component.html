@@ -2,6 +2,10 @@
   map works!
 </p>
 <a routerLink="destination">destnation</a>
+<p>
+  {{cityToDisplay.lat}} - {{cityToDisplay.lng}}
+  {{lat}} {{lng}}
+</p>
 <sebm-google-map [latitude]="lat" [longitude]="lng">
   <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
 </sebm-google-map>

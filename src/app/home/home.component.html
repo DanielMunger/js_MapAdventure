@@ -24,13 +24,14 @@
     <h5><a href="#">Tanker</a></h5>
 
   <h2>Or would you like to move along?</h2>
-  <h5><a href="#">Denver</a></h5>
-  <h5><a href="#">San Francisco</a></h5>
-  <h5><a href="#">Moscow</a></h5>
+  <div *ngFor="let city of cities" (click)="newDestination(city)">
+    <h5><a>{{city.name}}</a></h5>
+  </div>
+
 
 
   </div>
   <div class="col-sm-6">
-    <app-map></app-map>
+    <app-map [cityToDisplay]="cityToDisplay"></app-map>
   </div>
 </div>

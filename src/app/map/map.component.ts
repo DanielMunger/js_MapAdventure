@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Destination } from '../destination.model';
 
 @Component({
   selector: 'app-map',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+  @Input() cityToDisplay: Destination;
   title:string;
   lat:number;
   lng:number;
@@ -14,8 +16,8 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this.title= "Map Adventure";
-    this.lat= 45.5231;
-    this.lng= -122.6765;
+    this.lat= this.cityToDisplay.lat;
+    this.lng= this.cityToDisplay.lng;
   }
 
 }
