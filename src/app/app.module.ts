@@ -10,13 +10,15 @@ import { routing } from './app.routing';
 import { DestinationComponent } from './destination/destination.component';
 import { ApiKey } from './apikey';
 import { MapComponent } from './map/map.component';
+import { ChangeCityComponent } from './change-city/change-city.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DestinationComponent,
-    MapComponent
+    MapComponent,
+    ChangeCityComponent
   ],
   imports: [
     BrowserModule,

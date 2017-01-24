@@ -23,10 +23,7 @@
     <h5><a href="#">My Father's Place</a></h5>
     <h5><a href="#">Tanker</a></h5>
 
-  <h2>Or would you like to move along?</h2>
-  <div *ngFor="let city of cities" (click)="newDestination(city)">
-    <h5><a>{{city.name}}</a></h5>
-  </div>
+<app-change-city [cityToDisplay]="cityToDisplay"></app-change-city>
 
 
 

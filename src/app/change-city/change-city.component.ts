@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Destination } from '../destination.model';
@@ -14,28 +14,27 @@ import { DestinationService } from '../destination.service';
 })
 export class ChangeCityComponent implements OnInit {
   @Input() cityToDisplay: Destination;
+  @Output() citySender = new EventEmitter();
+
   destinationId: number = null;
   cities: Destination[];
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private destinationService: DestinationService) { }
 
   ngOnInit() {
-    this.cities = this.destinationService.getCities();
-    console.log(this.cities)
     this.route.params.forEach((urlParametersArray) => {
+      this.cities = this.destinationService.getCities();
       this.destinationId = parseInt(urlParametersArray['id']);
+      this.cityToDisplay = this.destinationService.getCityById(this.destinationId);
     });
-    this.cityToDisplay = this.destinationService.getCityById(this.destinationId);  }
+  }
 
-  newDestination(clickedCity: Destination)
-  {
-    this.router.navigate(['destination', clickedCity.id]);
-    console.log(this.cityToDisplay);
+  newDestination(clickedCity: Destination){
 
     this.route.params.forEach((urlParametersArray) => {
-      this.destinationId = parseInt(urlParametersArray['id']);
+      this.cityToDisplay = this.destinationService.getCityById(clickedCity.id);
+      this.router.navigate(['destination', clickedCity.id]);
+      this.citySender.emit(this.cityToDisplay);
     });
-    this.cityToDisplay = this.destinationService.getCityById(this.destinationId);
-    console.log(this.cityToDisplay);
   }
 }

@@ -15,6 +15,7 @@ export class DestinationComponent implements OnInit {
   destinationId: number = null;
   cityToDisplay: Destination;
   cities: Destination[];
+
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private destinationService: DestinationService) { }
 
   ngOnInit() {
@@ -23,7 +24,9 @@ export class DestinationComponent implements OnInit {
       this.destinationId = parseInt(urlParametersArray['id']);
     });
     this.cityToDisplay = this.destinationService.getCityById(this.destinationId);
-    console.log(this.cityToDisplay.lat);
+  }
+  changeCity(city){
+    this.cityToDisplay = city;
   }
 
 }

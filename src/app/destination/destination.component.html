@@ -1,2 +1,9 @@
 <h1>{{cityToDisplay.name}}</h1>
-<app-map [cityToDisplay]="cityToDisplay"></app-map>
+<div class="row">
+  <div class="col-sm-6">
+    <app-change-city [cityToDisplay]="cityToDisplay" (citySender)="changeCity($event)"></app-change-city>
+  </div>
+  <div class="col-sm-6">
+    <app-map [cityToDisplay]="cityToDisplay"></app-map>
+  </div>
+</div>

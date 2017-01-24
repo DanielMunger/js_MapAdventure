@@ -8,16 +8,10 @@ import { Destination } from '../destination.model';
 })
 export class MapComponent implements OnInit {
   @Input() cityToDisplay: Destination;
-  title:string;
-  lat:number;
-  lng:number;
 
   constructor() { }
 
   ngOnInit() {
-    this.title= "Map Adventure";
-    this.lat= this.cityToDisplay.lat;
-    this.lng= this.cityToDisplay.lng;
   }
 
 }
