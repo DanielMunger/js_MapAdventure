@@ -1,0 +1,36 @@
+<h1>Welcome to the Maps Adventure!</h1>
+<h2>Travel the world, see the sighs, have the adventures.</h2>
+<div class="form-group">
+  <div class="input-group">
+    <span class="input-group-addon">What's your name traveler?</span>
+    <input #name class="form-control">
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon">What's your business?</span>
+    <select #job class="form-control">
+      <option value="archeologist">Artifact Hunter</option>
+      <option value="vacationer">Jet Setter</option>
+      <option value="businessman">Capitalist Viper</option>
+      <option value="hunter">Killer of exotic things</option>
+    </select>
+  </div>
+  <button click="addTraveler(name.value, job.value)" class="btn btn-danger">Venture forth!</button>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <h2>Where would you like to go in Portland:</h2>
+    <h5><a href="#">Laurelhurst Park</a></h5>
+    <h5><a href="#">My Father's Place</a></h5>
+    <h5><a href="#">Tanker</a></h5>
+
+  <h2>Or would you like to move along?</h2>
+  <h5><a href="#">Denver</a></h5>
+  <h5><a href="#">San Francisco</a></h5>
+  <h5><a href="#">Moscow</a></h5>
+
+
+  </div>
+  <div class="col-sm-6">
+    <app-map></app-map>
+  </div>
+</div>
