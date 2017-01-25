@@ -1,9 +1,16 @@
 <h1>{{cityToDisplay.name}}</h1>
 <div class="row">
   <div class="col-sm-6">
+    <h3>Sites to Visit in {{cityToDisplay.name}}</h3>
+    <div *ngFor="let site of cityToDisplay.sites">
+      <h5 (click)="showSite(site)"><a>{{site.name}}</a></h5>
+      <div *ngIf="siteShowing">
+        <img src={{site.image}}>
+      </div>
+    </div>
     <app-change-city [cityToDisplay]="cityToDisplay" (citySender)="changeCity($event)"></app-change-city>
   </div>
   <div class="col-sm-6">
-    <app-map [cityToDisplay]="cityToDisplay"></app-map>
+    <app-map [cityToDisplay]="cityToDisplay" [zoomLevel]="zoomLevel"></app-map>
   </div>
 </div>

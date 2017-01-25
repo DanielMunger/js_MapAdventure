@@ -15,6 +15,8 @@ export class DestinationComponent implements OnInit {
   destinationId: number = null;
   cityToDisplay: Destination;
   cities: Destination[];
+  siteShowing: boolean = false;
+  zoomLevel: number;
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private destinationService: DestinationService) { }
 
@@ -22,11 +24,17 @@ export class DestinationComponent implements OnInit {
     this.cities = this.destinationService.getCities();
     this.route.params.forEach((urlParametersArray) => {
       this.destinationId = parseInt(urlParametersArray['id']);
+      this.siteShowing = false;
+      this.zoomLevel = 11;
     });
     this.cityToDisplay = this.destinationService.getCityById(this.destinationId);
   }
   changeCity(city){
     this.cityToDisplay = city;
   }
-
+  showSite(site)
+  {
+    this.siteShowing = true;
+    this.zoomLevel = 18;
+  }
 }

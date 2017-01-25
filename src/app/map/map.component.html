@@ -1,3 +1,3 @@
-<sebm-google-map [zoom]=13 [latitude]="cityToDisplay.lat" [longitude]="cityToDisplay.lng">
-  <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+<sebm-google-map [zoom]="zoomLevel" [latitude]="cityToDisplay.lat" [longitude]="cityToDisplay.lng">
+  <sebm-google-map-marker *ngFor='let site of cityToDisplay.sites' [latitude]="site.lat" [longitude]="site.lng"></sebm-google-map-marker>
 </sebm-google-map>

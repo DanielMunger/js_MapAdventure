@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MapComponent } from '../map/map.component';
 import { Traveller } from '../traveller.model';
 import { Destination } from '../destination.model';
@@ -12,13 +12,15 @@ import { DestinationService } from '../destination.service';
   providers: [DestinationService]
 })
 export class HomeComponent implements OnInit {
+  @Input() cityToDisplay: Destination;
   cities: Destination[];
-  cityToDisplay: Destination;
+
   constructor(private router: Router, private destinationService: DestinationService) { }
   ngOnInit() {
     this.cities = this.destinationService.getCities();
     this.cityToDisplay = this.cities[1];
-  }
+    console.log(this.cityToDisplay);
+    }
   addTraveler(name:string, job:string){
     let newTraveller: Traveller = new Traveller (name, job)
   }
